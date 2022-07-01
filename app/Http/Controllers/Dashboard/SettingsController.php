@@ -34,8 +34,6 @@ class SettingsController extends Controller
 
     public function updateShippingMethods(Request $request ,$id){
 
-        //validation
-
 
         //update db
 

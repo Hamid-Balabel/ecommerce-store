@@ -7,5 +7,7 @@ return [
     'inner shipping'=>'Inner shipping',
     'outer shipping'=>'Outer shipping',
     'shipping methods'=>'Shipping methods',
+    'language'=>'Language',
+
 
 ];

@@ -7,6 +7,7 @@ return [
     'inner shipping'=>'توصيل داخلي',
     'outer shipping'=>'توصيل خارجي',
     'shipping methods'=>'وسائل التوصيل',
+    'language'=>'اللغة الافتراضية',
 
 
 ];
