@@ -24,9 +24,19 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             Route::get('/', 'DashboardController@index')->name('admin.dashboard');
             Route::get('logout', 'LoginController@logout')->name('admin.logout');
 
+            //////  shipping methods
+
             Route::group(['prefix' => 'settings'], function () {
                 Route::get('shipping-method/{type}', 'SettingsController@editShippingMethods')->name('edit.shipping.methods');
                 Route::put('shipping-method/{id}', 'SettingsController@updateShippingMethods')->name('update.shipping.methods');
+            });
+
+            ///// edit admin profile /////
+
+            Route::group(['prefix' => 'profile'], function () {
+                Route::get('edit', 'ProfileController@editProfile')->name('edit.profile');
+                Route::put('update', 'ProfileController@updateProfile')->name('update.profile');
+//                Route::put('update/password', 'ProfileController@updatePassword')->name('update.profile.password');
             });
         });
 
