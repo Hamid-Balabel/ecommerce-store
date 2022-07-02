@@ -9,8 +9,6 @@ class Category extends Model
 {
     use translatable;
 
-    use translatable;
-
     protected $with=['translations'];
 
     protected $translatedAttributes= ['name'];
@@ -22,5 +20,17 @@ class Category extends Model
     protected $casts=[
         'is_active'=>'boolean',
     ];
+
+
+    public function scopeParent($query){
+        return $query-> whereNull('parent_id');
+    }
+    public function scopeChild($query){
+        return $query-> whereNotNull('parent_id');
+    }
+
+    public function getActive(){
+       return $this-> is_active == 0 ? __('admin/general.active'):__('admin/general.not active');
+    }
 
 }

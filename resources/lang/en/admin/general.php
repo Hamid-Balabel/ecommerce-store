@@ -9,6 +9,20 @@ return [
     'email'=>'Email',
     'password'=>'Password',
     'password confirmation'=>'Password confirmation',
+    'category name'=>'Category name',
+    'sub category name'=>'Sub category name',
+    'linked name'=>'Linked name',
+    'status'=>'Status',
+    'category image'=>'Category image',
+    'the actions'=>'The actions',
+    'active'=>'Active',
+    'not active'=>'Not active',
+    'this category is not found'=>'This category is not found',
+    'categories data'=>'Categories data',
+    'main categories'=>'Main categories',
+    'sub categories'=>'Sub categories',
+    'add category'=>'Add category',
+    'show all'=>'Show all',
 
 
 
