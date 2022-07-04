@@ -30,7 +30,11 @@ class Category extends Model
     }
 
     public function getActive(){
-       return $this-> is_active == 0 ? __('admin/general.active'):__('admin/general.not active');
+       return $this-> is_active !== 0 ? __('admin/general.active'):__('admin/general.not active');
+    }
+
+    public function mparent(){
+       return $this-> belongsTo(self::class,'parent_id');
     }
 
 }

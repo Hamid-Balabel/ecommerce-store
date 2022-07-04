@@ -8,6 +8,8 @@ return [
     'outer shipping'=>'Outer shipping',
     'shipping methods'=>'Shipping methods',
     'language'=>'Language',
+    'brand name'=>'brand name',
+
 
 
 ];

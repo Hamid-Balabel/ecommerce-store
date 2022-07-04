@@ -8,6 +8,7 @@ return [
     'outer shipping'=>'توصيل خارجي',
     'shipping methods'=>'وسائل التوصيل',
     'language'=>'اللغة الافتراضية',
+    'brand name'=>'اسم الماركة',
 
 
 ];
