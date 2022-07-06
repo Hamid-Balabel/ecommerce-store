@@ -48,6 +48,7 @@
                                             <thead class="">
                                             <tr>
                                                 <th>{{__('admin/general.category name')}} </th>
+                                                <th>{{__('admin/general.main category name')}} </th>
                                                 <th> {{__('admin/general.linked name')}}</th>
                                                 <th> {{__('admin/general.status')}}</th>
                                                 <th> {{__('admin/general.category image')}}</th>
@@ -61,6 +62,7 @@
                                                 @foreach($categories as $category)
                                                     <tr>
                                                         <td>{{$category -> name}}</td>
+                                                        <td>{{$category -> _parent -> name  ?? '--' }}</td>
                                                         <td>{{$category -> slug}}</td>
                                                         <td>{{$category -> getActive()}}</td>
                                                         <td> <img style="width: 150px; height: 100px;" src=""></td>

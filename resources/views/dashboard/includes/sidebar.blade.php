@@ -3,14 +3,14 @@
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
             <li class="nav-item active"><a href=""><i class="la la-mouse-pointer"></i><span
-                        class="menu-title" data-i18n="nav.add_on_drag_drop.main">الرئيسية </span></a>
+                            class="menu-title" data-i18n="nav.add_on_drag_drop.main">الرئيسية </span></a>
             </li>
 
             <li class="nav-item  open ">
                 <a href=""><i class="la la-home"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">لغات الموقع </span>
                     <span
-                        class="badge badge badge-info badge-pill float-right mr-2">
+                            class="badge badge badge-info badge-pill float-right mr-2">
 {{--                        {{App\Models\Language::count()}}--}}
                     </span>
                 </a>
@@ -18,7 +18,7 @@
                     <li class="active"><a class="menu-item"
                                           data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
-                    <li><a class="menu-item"  data-i18n="nav.dash.crypto">أضافة
+                    <li><a class="menu-item" data-i18n="nav.dash.crypto">أضافة
                             لغة جديده </a>
                     </li>
                 </ul>
@@ -28,46 +28,48 @@
             <li class="nav-item"><a href=""><i class="la la-group"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/general.main categories')}} </span>
                     <span
-                        class="badge badge badge-danger badge-pill float-right mr-2">
-                        {{App\Models\Category::parent() ->count()}}
+                            class="badge badge badge-danger badge-pill float-right mr-2">
+                        {{App\Models\Category::count()}}
                     </span>
                 </a>
                 <ul class="menu-content">
                     <li class="active"><a class="menu-item" href="{{route('admin.maincategories')}}"
                                           data-i18n="nav.dash.ecommerce">{{__('admin/general.show all')}}</a>
                     </li>
-                    <li><a class="menu-item" href="{{route('admin.maincategories.create')}}" data-i18n="nav.dash.crypto">
+                    <li><a class="menu-item" href="{{route('admin.maincategories.create')}}"
+                           data-i18n="nav.dash.crypto">
                             {{__('admin/general.add category')}} </a>
                     </li>
                 </ul>
             </li>
 
-            <li class="nav-item"><a href=""><i class="la la-group"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/general.sub categories')}}   </span>
-                    <span
-                        class="badge badge badge-danger badge-pill float-right mr-2">400</span>
-                </a>
-                <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="{{route('admin.subcategories')}}"
-                                          data-i18n="nav.dash.ecommerce"> {{__('admin/general.show all')}} </a>
-                    </li>
-                    <li><a class="menu-item" href="{{route('admin.subcategories.create')}}" data-i18n="nav.dash.crypto">
-                            {{__('admin/general.add category')}} </a>
-                    </li>
-                </ul>
-            </li>
 
             <li class="nav-item"><a href=""><i class="la la-group"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الماركات التجارية  </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/general.brands')}}  </span>
                     <span
-                        class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\Brand::count()}}</span>
+                            class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\Brand::count()}}</span>
                 </a>
                 <ul class="menu-content">
                     <li class="active"><a class="menu-item" href="{{route('admin.brands')}}"
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                                          data-i18n="nav.dash.ecommerce"> {{__('admin/general.show all')}} </a>
                     </li>
                     <li><a class="menu-item" href="{{route('admin.brands.create')}}" data-i18n="nav.dash.crypto">
-                            اضافة ماركة جديدة </a>
+                            {{__('admin/general.add new brand')}}  </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/general.tags')}}  </span>
+                    <span
+                        class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\Tag::count()}}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{route('admin.tags')}}"
+                                          data-i18n="nav.dash.ecommerce"> {{__('admin/general.show all')}} </a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('admin.tags.create')}}" data-i18n="nav.dash.crypto">
+                            {{__('admin/general.add new tag')}} </a>
                     </li>
                 </ul>
             </li>
@@ -75,7 +77,7 @@
             <li class="nav-item"><a href=""><i class="la la-male"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">المتاجر  </span>
                     <span
-                        class="badge badge badge-success badge-pill float-right mr-2">
+                            class="badge badge badge-success badge-pill float-right mr-2">
 {{--                        {{App\Models\Vendor::count()}}--}}
                     </span>
                 </a>
@@ -84,7 +86,7 @@
                                           data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
                     <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                            متجر  </a>
+                            متجر </a>
                     </li>
                 </ul>
             </li>
@@ -93,7 +95,7 @@
             <li class="nav-item"><a href=""><i class="la la-male"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">الطلاب  </span>
                     <span
-                        class="badge badge badge-warning  badge-pill float-right mr-2"></span>
+                            class="badge badge badge-warning  badge-pill float-right mr-2"></span>
                 </a>
                 <ul class="menu-content">
                     <li class="active"><a class="menu-item" href=""
@@ -110,7 +112,7 @@
                 <a href=""><i class="la la-male"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">تذاكر المراسلات   </span>
                     <span
-                        class="badge badge badge-danger  badge-pill float-right mr-2">0</span>
+                            class="badge badge badge-danger  badge-pill float-right mr-2">0</span>
                 </a>
                 <ul class="menu-content">
                     <li class="active"><a class="menu-item" href=""
@@ -123,12 +125,14 @@
             <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
                                                                                     data-i18n="nav.templates.main"> {{__('admin/sidebar.settings')}} </span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main">{{__('admin/sidebar.shipping methods')}}</a>
+                    <li><a class="menu-item" href="#"
+                           data-i18n="nav.templates.vert.main">{{__('admin/sidebar.shipping methods')}}</a>
                         <ul class="menu-content">
                             <li><a class="menu-item" href="{{route('edit.shipping.methods','free')}}"
                                    data-i18n="nav.templates.vert.classic_menu"> {{__('admin/sidebar.free shipping')}}</a>
                             </li>
-                            <li><a class="menu-item" href="{{route('edit.shipping.methods','inner')}}"> {{__('admin/sidebar.inner shipping')}} </a>
+                            <li><a class="menu-item"
+                                   href="{{route('edit.shipping.methods','inner')}}"> {{__('admin/sidebar.inner shipping')}} </a>
                             </li>
                             <li><a class="menu-item" href="{{route('edit.shipping.methods','outer')}}"
                                    data-i18n="nav.templates.vert.compact_menu">{{__('admin/sidebar.outer shipping')}}</a>
@@ -147,7 +151,7 @@
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-columns"></i><span class="menu-title"
                                                                                  data-i18n="nav.page_layouts.main">Page layouts</span><span
-                        class="badge badge badge-pill badge-danger float-right mr-2">New</span></a>
+                            class="badge badge badge-pill badge-danger float-right mr-2">New</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="layout-1-column.html" data-i18n="nav.page_layouts.1_column">1
                             column</a>
@@ -541,7 +545,7 @@
             </li>
             <li class=" nav-item"><a href="changelog.html"><i class="la la-copy"></i><span class="menu-title"
                                                                                            data-i18n="nav.changelog.main">Changelog</span><span
-                        class="badge badge badge-pill badge-warning float-right">1.0</span></a>
+                            class="badge badge badge-pill badge-warning float-right">1.0</span></a>
             </li>
             <li class="disabled nav-item"><a href="#"><i class="la la-eye-slash"></i><span class="menu-title"
                                                                                            data-i18n="nav.disabled_menu.main">Disabled Menu</span></a>
@@ -582,7 +586,7 @@
                                                                     data-original-title="Pages"></i>
             </li>
             <li class=" nav-item"><a href="email-application.html"><i class="la la-envelope"></i><span
-                        class="menu-title" data-i18n="">Email Application</span></a>
+                            class="menu-title" data-i18n="">Email Application</span></a>
             </li>
             <li class=" nav-item"><a href="chat-application.html"><i class="la la-comments"></i><span class="menu-title"
                                                                                                       data-i18n="">Chat Application</span></a>
@@ -603,7 +607,7 @@
             </li>
             <li class=" nav-item"><a href="scrumboard.html"><i class="la la-check-square"></i><span class="menu-title"
                                                                                                     data-i18n="nav.scrumboard.main">Scrumboard</span><span
-                        class="badge badge badge-info float-right">Update</span></a>
+                            class="badge badge badge-info float-right">Update</span></a>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-clipboard"></i><span class="menu-title"
                                                                                    data-i18n="nav.invoice.main">Invoice</span></a>
@@ -786,7 +790,7 @@
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-tablet"></i><span class="menu-title"
                                                                                 data-i18n="nav.cards.main">Cards</span><span
-                        class="badge badge badge-success float-right mr-2">New</span></a>
+                            class="badge badge badge-success float-right mr-2">New</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="card-bootstrap.html"
                            data-i18n="nav.cards.card_bootstrap">Bootstrap</a>
@@ -1277,7 +1281,7 @@
                                                                                                       data-i18n="nav.add_on_image_cropper.main">Image Cropper</span></a>
             </li>
             <li class=" nav-item"><a href="add-on-drag-drop.html"><i class="la la-mouse-pointer"></i><span
-                        class="menu-title" data-i18n="nav.add_on_drag_drop.main">Drag &amp; Drop</span></a>
+                            class="menu-title" data-i18n="nav.add_on_drag_drop.main">Drag &amp; Drop</span></a>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-cloud-upload"></i><span class="menu-title"
                                                                                       data-i18n="nav.file_uploaders.main">File Uploader</span></a>
@@ -1553,11 +1557,11 @@
                                                                         data-original-title="Support"></i>
             </li>
             <li class=" nav-item"><a href="http://support.pixinvent.com/"><i class="la la-support"></i><span
-                        class="menu-title" data-i18n="nav.support_raise_support.main">Raise Support</span></a>
+                            class="menu-title" data-i18n="nav.support_raise_support.main">Raise Support</span></a>
             </li>
             <li class=" nav-item">
                 <a href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/documentation"><i
-                        class="la la-text-height"></i>
+                            class="la la-text-height"></i>
                     <span class="menu-title" data-i18n="nav.support_documentation.main">Documentation</span>
                 </a>
             </li>

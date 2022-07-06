@@ -24,30 +24,34 @@ class BrandsController extends Controller
 
 
     public function store(BrandRequest $request){
-
+        try {
+            DB::beginTransaction();
 
             if (!$request->has('is_active'))
-                $request->request->add(['is_active'=>0]);
+                $request->request->add(['is_active' => 0]);
             else
-                $request->request->add(['is_active'=>1]);
+                $request->request->add(['is_active' => 1]);
 
-            $filename='';
-            if($request->has('photo')){
-                $filename= uploadImage('brands', $request->photo);
+            $filename = '';
+            if ($request->has('photo')) {
+                $filename = uploadImage('brands', $request->photo);
             }
 
-            $brand= Brand::create($request->except('_token','photo'));
+            $brand = Brand::create($request->except('_token', 'photo'));
 
             //save the translation attribute
 
-            $brand->name= $request->name;
-            $brand->photo= $filename;
+            $brand->name = $request->name;
+            $brand->photo = $filename;
             $brand->save();
 
+            DB::commit();
 
-
-            return redirect()->route('admin.brands')->with(['success'=>'تمت الاضافة بنجاح']);
-
+            return redirect()->route('admin.brands')->with(['success' => 'تمت الاضافة بنجاح']);
+        } catch (\Exception $ex) {
+            DB::rollBack();
+            return redirect()->route('admin.brands')->with(['error' => ' هناك خطأ بالبينات !!!']);
+        }
 
 
 
@@ -57,37 +61,46 @@ class BrandsController extends Controller
 
 
     public function edit($id){
-        $category= Category::orderBy('id','DESC')->find($id);
-        if(!$category){
-            return redirect()->route('admin.maincategories')->with(['error'=>'__("admin/general.this category is not found")']);
+        $brand= Brand::find($id);
+        if(!$brand){
+            return redirect()->route('admin.brands')->with(['error'=>'__("admin/general.this brand is not found")']);
         }
-        return view('dashboard.categories.edit',compact('category'));
+        return view('dashboard.brands.edit',compact('brand'));
     }
 
 
-    public function update($id, MainCategoryRequest $request){
+    public function update($id, BrandRequest $request){
 
         try{
+            DB::beginTransaction();
             if (!$request->has('is_active'))
                 $request->request->add(['is_active'=>0]);
             else
                 $request->request->add(['is_active'=>1]);
-            $category= Category::find($id);
+            $brand= Brand::find($id);
 
-            if(!$category)
-                return redirect()->route('admin.maincategories')->with(['error'=>' لم يتم التحديث هناك خطأ بالبينات !!!']);
+            if(!$brand)
+                return redirect()->route('admin.brands')->with(['error'=>' لم يتم التحديث هناك خطأ بالبينات !!!']);
 
-            $category->update($request->all());
+            if($request->has('photo')){
+                $filename=uploadImage('brands',$request->photo);
+                Brand::where('id',$id)->update(['photo'=>$filename]);
+            }
+
+            $brand->update($request->except('_token','id','photo'));
 
             //save the translation attribute
 
-            $category->name= $request->name;
-            $category->save();
+            $brand->name= $request->name;
+            $brand->save();
 
-            return redirect()->route('admin.maincategories')->with(['success'=>'تم تحديث البيانات']);
+            DB::commit();
+
+            return redirect()->route('admin.brands')->with(['success'=>'تم تحديث البيانات']);
 
         }catch (\Exception $ex){
-            return redirect()->route('admin.maincategories')->with(['error'=>'لم يتم التحديث هناك خطأ بالبينات !!!']);
+            DB::rollBack();
+            return redirect()->route('admin.brands')->with(['error'=>'لم يتم التحديث هناك خطأ بالبينات !!!']);
         }
     }
 
@@ -95,15 +108,15 @@ class BrandsController extends Controller
 
     public function destroy($id){
         try{
-            $category= Category::orderBy('id','DESC')->find($id);
-            if(!$category)
-                return redirect()->route('admin.maincategories')->with(['error'=>'__("admin/general.this category is not found")']);
+            $brand= Brand::find($id);
+            if(!$brand)
+                return redirect()->route('admin.brands')->with(['error'=>'__("admin/general.this brand is not found")']);
 
-            $category->delete();
-            return redirect()->route('admin.maincategories')->with(['success'=>'تم الحذف بنجاح']);
+            $brand->delete();
+            return redirect()->route('admin.brands')->with(['success'=>'تم الحذف بنجاح']);
 
         }catch (\Exception $ex){
-            return redirect()->route('admin.maincategories')->with(['error'=>' هناك خطأ بالبينات !!!']);
+            return redirect()->route('admin.brands')->with(['error'=>' هناك خطأ بالبينات !!!']);
         }
     }
 }

@@ -9,6 +9,15 @@ return [
     'shipping methods'=>'وسائل التوصيل',
     'language'=>'اللغة الافتراضية',
     'brand name'=>'اسم الماركة',
-
+    'main categories'=>'الاقسام الرئيسية',
+    'sub categories'=>'الاقسام الفرعية',
+    'add category'=>'اضافة قسم',
+    'show all'=>'عرض الكل',
+    'brand image'=>'صورة الماركة',
+    'brands'=>'الماركات التجارية',
+    'brand data'=>'بيانات الماركة',
+    'tags'=>'العلامات',
+    'add new brand'=>'اضافة ماركة جديدة',
+    'add new tag'=>'اضافة علامة جديدة',
 
 ];

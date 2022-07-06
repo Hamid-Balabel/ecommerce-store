@@ -23,7 +23,7 @@ class Brand extends Model
     ];
 
     public function getActive(){
-        return $this-> is_active !== 0 ? __('admin/general.active'):__('admin/general.not active');
+        return $this-> is_active == 1 ? __('admin/general.active'):__('admin/general.not active');
     }
 
     public function getPhotoAttribute($val){
