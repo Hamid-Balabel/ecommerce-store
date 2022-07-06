@@ -33,8 +33,8 @@ class Category extends Model
        return $this-> is_active !== 0 ? __('admin/general.active'):__('admin/general.not active');
     }
 
-    public function mparent(){
-       return $this-> belongsTo(self::class,'parent_id');
+    public function _parent(){
+        return $this->belongsTo(self::class, 'parent_id');
     }
 
 }

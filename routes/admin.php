@@ -54,21 +54,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             /////End Categories routes /////
 
 
-            ///// Start sub Categories routes /////
-
-            Route::group(['prefix' => 'sub_categories'], function () {
-                Route::get('/', 'SubCategoriesController@index')->name('admin.subcategories');
-                Route::get('create', 'SubCategoriesController@create')->name('admin.subcategories.create');
-                Route::post('store', 'SubCategoriesController@store')->name('admin.subcategories.store');
-                Route::get('edit/{id}', 'SubCategoriesController@edit')->name('admin.subcategories.edit');
-                Route::post('update/{id}', 'SubCategoriesController@update')->name('admin.subcategories.update');
-                Route::get('delete/{id}', 'SubCategoriesController@destroy')->name('admin.subcategories.delete');
-            });
-
-            /////End sub Categories routes /////
-
             ///// brands routes /////
-            ///
+
             Route::group(['prefix' => 'brands'], function () {
                 Route::get('/','BrandsController@index') -> name('admin.brands');
                 Route::get('create','BrandsController@create') -> name('admin.brands.create');
@@ -78,6 +65,19 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
                 Route::get('delete/{id}','BrandsController@destroy') -> name('admin.brands.delete');
             });
             ///// end brands   /////
+
+
+            ///// tags routes /////
+
+            Route::group(['prefix' => 'tags'], function () {
+                Route::get('/','TagsController@index') -> name('admin.tags');
+                Route::get('create','TagsController@create') -> name('admin.tags.create');
+                Route::post('store','TagsController@store') -> name('admin.tags.store');
+                Route::get('edit/{id}','TagsController@edit') -> name('admin.tags.edit');
+                Route::post('update/{id}','TagsController@update') -> name('admin.tags.update');
+                Route::get('delete/{id}','TagsController@destroy') -> name('admin.tags.delete');
+            });
+            ///// end tags   /////
 
 
 
