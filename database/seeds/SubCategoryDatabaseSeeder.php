@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 
 class SubCategoryDatabaseSeeder extends Seeder
@@ -12,7 +12,7 @@ class SubCategoryDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(Category::class, 5)->create([
+        factory(Product::class, 5)->create([
             'parent_id'=>$this->getRandomParentId()
         ]);
 
@@ -20,7 +20,7 @@ class SubCategoryDatabaseSeeder extends Seeder
 
     private function getRandomParentId()
     {
-        $parent_id= \App\Models\Category::inRandomOrder()->first();
+        $parent_id= \App\Models\Product::inRandomOrder()->first();
         return $parent_id;
     }
 }

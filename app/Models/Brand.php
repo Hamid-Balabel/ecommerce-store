@@ -22,6 +22,12 @@ class Brand extends Model
         'is_active'=>'boolean',
     ];
 
+
+    public function scopeActive($query){
+        return $query->where('is_active',1);
+    }
+
+
     public function getActive(){
         return $this-> is_active == 1 ? __('admin/general.active'):__('admin/general.not active');
     }

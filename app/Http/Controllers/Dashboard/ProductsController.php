@@ -3,27 +3,32 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TagRequest;
+use App\Http\Requests\GenralProductRequest;
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class MainCategoriesController extends Controller
+class ProductsController extends Controller
 {
     public function index(){
 
-        $categories = Product::with('_parent')->orderBy('id','DESC') -> paginate(PAGINATION_COUNT);
-        return view('dashboard.categories.index', compact('categories'));
+
     }
 
     public function create(){
+        $data=[];
+        $data['brands']= Brand::active()->select('id')->get();
+        $data['tags']= Tag::select('id')->get();
+        $data['categories']= Category::active()->select('id')->get();
+        return view('dashboard.products.general.create',$data);
+    }
 
-        $categories =   Product::select('id','parent_id')->get();
-        return view('dashboard.categories.create',compact('categories'));    }
 
 
-
-    public function store(TagRequest $request){
+    public function store(GenralProductRequest $request){
         try{
             DB::beginTransaction();
 
