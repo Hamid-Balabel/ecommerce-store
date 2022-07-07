@@ -23,5 +23,9 @@ class Tag extends Model
     ];
 
 
+    public function scopActive($query){
+        return $query->where('is_active',1);
+    }
+
 
 }

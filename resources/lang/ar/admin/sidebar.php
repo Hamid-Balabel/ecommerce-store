@@ -19,5 +19,7 @@ return [
     'tags'=>'العلامات',
     'add new brand'=>'اضافة ماركة جديدة',
     'add new tag'=>'اضافة علامة جديدة',
+    'products'=>'المنتجات',
+    'add new product'=>'اضافة منتج جديد',
 
 ];

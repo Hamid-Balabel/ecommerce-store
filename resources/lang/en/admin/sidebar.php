@@ -19,6 +19,8 @@ return [
     'tags'=>'Tags',
     'add new brand'=>'Add new brand',
     'add new tag'=>'Add new tag',
+    'products'=>'Products',
+    'add new product'=>'Add new product',
 
 
 

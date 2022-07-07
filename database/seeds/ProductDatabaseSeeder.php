@@ -3,7 +3,7 @@
 use App\Models\Product;
 use Illuminate\Database\Seeder;
 
-class CategoryDatabaseSeeder extends Seeder
+class ProductDatabaseSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class CategoryDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(Product::class, 20)->create();
+        factory(\App\Models\Product::class, 20)->create();
     }
 }
