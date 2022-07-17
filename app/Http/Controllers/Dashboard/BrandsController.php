@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\BrandRequest;
+use App\Http\Requests\AttributeRequest;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +23,7 @@ class BrandsController extends Controller
 
 
 
-    public function store(BrandRequest $request){
+    public function store(AttributeRequest $request){
         try {
             DB::beginTransaction();
 
@@ -69,7 +69,7 @@ class BrandsController extends Controller
     }
 
 
-    public function update($id, BrandRequest $request){
+    public function update($id, AttributeRequest $request){
 
         try{
             DB::beginTransaction();

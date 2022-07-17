@@ -19,7 +19,10 @@ return [
     'tags'=>'العلامات',
     'add new brand'=>'اضافة ماركة جديدة',
     'add new tag'=>'اضافة علامة جديدة',
+    'add new option'=>'اضافة قيمة لخاصية',
+    'options'=>'قيم خصائص المنتج',
     'products'=>'المنتجات',
+    'attributes'=>'خصائص المنتج',
     'add new product'=>'اضافة منتج جديد',
-
+    'add new attribute'=>'اضافة خاصية جديدة'
 ];

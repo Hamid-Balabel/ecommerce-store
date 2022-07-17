@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\BrandRequest;
+use App\Http\Requests\AttributeRequest;
 use App\Http\Requests\TagRequest;
 use App\Models\Tag;
 use Illuminate\Http\Request;
