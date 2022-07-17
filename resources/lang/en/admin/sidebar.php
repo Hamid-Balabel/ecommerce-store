@@ -19,8 +19,12 @@ return [
     'tags'=>'Tags',
     'add new brand'=>'Add new brand',
     'add new tag'=>'Add new tag',
+    'add new option'=>'Add new option',
+    'options'=>'Option',
     'products'=>'Products',
+    'attributes'=>'Attributes',
     'add new product'=>'Add new product',
+    'add new attribute'=>'Add new attribute',
 
 
 

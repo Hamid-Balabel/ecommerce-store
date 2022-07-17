@@ -87,6 +87,8 @@ class Product extends Model
         return $this->is_active == 0 ? 'غير مفعل' : 'مفعل';
     }
 
+
+
     public function categories()
     {
         return $this->belongsToMany(Category::class, 'product_categories');
@@ -97,8 +99,17 @@ class Product extends Model
         return $query->where('is_active', 1);
     }
 
+
+    public function _parent(){
+        return $this->belongsTo(self::class, 'parent_id');
+    }
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'product_tags');
+    }
+    public function options()
+    {
+        return $this->hasMany(Option::class,'product_id');
     }
 }
