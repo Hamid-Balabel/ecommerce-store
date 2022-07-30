@@ -22,6 +22,7 @@ return [
     'not active'=>'Not active',
     'this category is not found'=>'This category is not found',
     'this brand is not found'=>'This brand is not found',
+    'this option is not found'=>'This option is not found',
     'this attribute is not found'=>'This attribute is not found',
     'categories data'=>'Categories data',
     'categories'=>'Categories',

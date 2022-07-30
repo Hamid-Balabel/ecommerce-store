@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('test', function () {
     return \App\Models\Setting::find(23);
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

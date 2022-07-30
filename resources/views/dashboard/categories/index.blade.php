@@ -79,12 +79,12 @@
 
 {{--                                                                <a href="{{route('admin.maincategories.status',$category -> id)}}"--}}
 {{--                                                                   class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1">--}}
-                                                                    @if($category -> active == 0)
-                                                                        تفعيل
-                                                                    @else
-                                                                        الغاء تفعيل
-                                                                    @endif
-                                                                </a>
+{{--                                                                    @if($category -> active == 0)--}}
+{{--                                                                        تفعيل--}}
+{{--                                                                    @else--}}
+{{--                                                                        الغاء تفعيل--}}
+{{--                                                                    @endif--}}
+{{--                                                                </a>--}}
 
 
                                                             </div>

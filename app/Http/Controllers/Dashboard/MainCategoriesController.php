@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TagRequest;
-use App\Models\Product;
+use App\Http\Requests\MainCategoryRequest;
+use App\Models\Category;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,19 +13,20 @@ class MainCategoriesController extends Controller
 {
     public function index(){
 
-        $categories = Product::with('_parent')->orderBy('id','DESC') -> paginate(PAGINATION_COUNT);
+        $categories = Category::with('_parent')->orderBy('id','DESC') -> paginate(PAGINATION_COUNT);
         return view('dashboard.categories.index', compact('categories'));
     }
 
     public function create(){
 
-        $categories =   Product::select('id','parent_id')->get();
-        return view('dashboard.categories.create',compact('categories'));    }
+        $categories =   Category::select('id','parent_id')->get();
+        return view('dashboard.categories.create',compact('categories'));
+    }
 
 
 
-    public function store(TagRequest $request){
-        try{
+    public function store(MainCategoryRequest $request){
+
             DB::beginTransaction();
 
             if (!$request->has('is_active'))
@@ -36,7 +38,7 @@ class MainCategoriesController extends Controller
                 $request->request->add(['parent_id'=>null]);
             }
 
-            $category= Product::create($request->except('_token'));
+            $category= Category::create($request->except('_token'));
 
             //save the translation attribute
 
@@ -48,10 +50,7 @@ class MainCategoriesController extends Controller
             return redirect()->route('admin.maincategories')->with(['success'=>'تمت الاضافة بنجاح']);
 
 
-        }catch (\Exception $ex){
-            DB::rollBack();
-            return redirect()->route('admin.maincategories')->with(['error'=>' هناك خطأ بالبينات !!!']);
-        }
+
 
     }
 
@@ -59,7 +58,7 @@ class MainCategoriesController extends Controller
 
 
     public function edit($id){
-        $category= Product::orderBy('id','DESC')->find($id);
+        $category= Category::orderBy('id','DESC')->find($id);
         if(!$category){
             return redirect()->route('admin.maincategories')->with(['error'=>'__("admin/general.this category is not found")']);
         }
@@ -67,37 +66,38 @@ class MainCategoriesController extends Controller
     }
 
 
-    public function update($id, TagRequest $request){
+    public function update ($id, MainCategoryRequest $request)
+    {
+        try {
 
-        try{
+            $category = Category::find($id);
+
+            if (!$category)
+                return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود']);
+
             if (!$request->has('is_active'))
-                $request->request->add(['is_active'=>0]);
+                $request->request->add(['is_active' => 0]);
             else
-                $request->request->add(['is_active'=>1]);
-            $category= Product::find($id);
-
-            if(!$category)
-                return redirect()->route('admin.maincategories')->with(['error'=>' لم يتم التحديث هناك خطأ بالبينات !!!']);
+                $request->request->add(['is_active' => 1]);
 
             $category->update($request->all());
 
-            //save the translation attribute
-
-            $category->name= $request->name;
+            $category->name = $request->name;
             $category->save();
 
-            return redirect()->route('admin.maincategories')->with(['success'=>'تم تحديث البيانات']);
+            return redirect()->route('admin.maincategories')->with(['success' => 'تم ألتحديث بنجاح']);
+        } catch (\Exception $ex) {
 
-        }catch (\Exception $ex){
-            return redirect()->route('admin.maincategories')->with(['error'=>'لم يتم التحديث هناك خطأ بالبينات !!!']);
+            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
+
     }
 
 
 
     public function destroy($id){
         try{
-            $category= Product::orderBy('id','DESC')->find($id);
+            $category= Category::orderBy('id','DESC')->find($id);
             if(!$category)
                 return redirect()->route('admin.maincategories')->with(['error'=>'__("admin/general.this category is not found")']);
 

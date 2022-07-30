@@ -25,6 +25,9 @@ return [
     'attributes'=>'Attributes',
     'add new product'=>'Add new product',
     'add new attribute'=>'Add new attribute',
+    'main slider'=>'Main slider',
+    'create'=>'Create',
+
 
 
 
