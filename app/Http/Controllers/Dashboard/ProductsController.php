@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GenralProductRequest;
+use App\Http\Requests\MainCategoryRequest;
 use App\Http\Requests\ProductPriceValidation;
 use App\Http\Requests\ProductImagesRequest;
 use App\Models\Brand;
@@ -145,7 +146,7 @@ class ProductsController extends Controller
     }
 
 
-    public function update($id, TagRequest $request){
+    public function update($id, MainCategoryRequest $request){
 
         try{
             if (!$request->has('is_active'))

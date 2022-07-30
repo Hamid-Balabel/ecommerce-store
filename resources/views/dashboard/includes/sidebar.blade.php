@@ -168,6 +168,15 @@
                         </ul>
                     </li>
 
+                    <li><a class="menu-item" href="#"
+                           data-i18n="nav.templates.vert.main"> {{__('admin/sidebar.main slider')}} </a>
+                        <ul class="menu-content">
+                            <li><a class="menu-item" href="{{route('admin.sliders.create')}}"
+                                   data-i18n="nav.templates.vert.classic_menu">صور الاسليدر </a>
+                            </li>
+                        </ul>
+                    </li>
+
                 </ul>
             </li>
             <li class=" navigation-header">

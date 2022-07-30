@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AttributeRequest;
-use App\Http\Requests\TagRequest;
+use App\Http\Requests\VerificationRequest;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -24,7 +24,7 @@ class TagsController extends Controller
 
 
 
-    public function store(TagRequest $request){
+    public function store(VerificationRequest $request){
             DB::beginTransaction();
 
             $tag = Tag::create(['slug'=>$request->slug]);
@@ -51,7 +51,7 @@ class TagsController extends Controller
     }
 
 
-    public function update($id, TagRequest $request){
+    public function update($id, VerificationRequest $request){
 
 //        try{
             DB::beginTransaction();

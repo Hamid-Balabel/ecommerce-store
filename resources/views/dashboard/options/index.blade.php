@@ -25,7 +25,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">خواص المنتجات </h4>
+                                    <h4 class="card-title">جميع الماركات التجارية </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -49,8 +49,8 @@
                                             <tr>
                                                 <th>الاسم</th>
                                                 <th>السعر</th>
-                                                <th>المنتج</th>
-                                                <th>خصائص</th>
+{{--                                                <th>المنتج</th>--}}
+                                                <th>الخصائص</th>
                                                 <th>الإجراءات</th>
                                             </tr>
                                             </thead>
@@ -61,8 +61,8 @@
                                                     <tr>
                                                         <td>{{$option -> name}}</td>
                                                         <td>{{$option ->price}}</td>
-                                                        <td>{{$option ->product->name}}</td>
-                                                        <td>{{$option ->attribute->name}}</td>
+{{--                                                        <td>{{$option ->product -> name}}</td>--}}
+                                                        <td>{{$option ->attribute -> name}}</td>
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">

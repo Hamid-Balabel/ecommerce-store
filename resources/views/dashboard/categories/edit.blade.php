@@ -1,5 +1,5 @@
-@extends('layouts.admin')
 
+@extends('layouts.admin')
 @section('content')
 
     <div class="app-content content">
@@ -73,29 +73,28 @@
 
                                             <div class="form-body">
 
-                                                <h4 class="form-section"><i class="ft-home"></i> {{__('admin/general.categories data')}} </h4>
+                                                <h4 class="form-section"><i class="ft-home"></i> بيانات القسم </h4>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1">{{__('admin/general.category name')}}
-                                                                 </label>
+                                                            <label for="projectinput1"> اسم القسم
+                                                            </label>
                                                             <input type="text" id="name"
                                                                    class="form-control"
                                                                    placeholder="  "
                                                                    value="{{$category -> name}}"
                                                                    name="name">
                                                             @error("name")
-                                                            <span class="text-danger">{{$message}} </span>
+                                                            <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
 
-
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1">{{__('admin/general.linked name')}}
+                                                            <label for="projectinput1"> اسم بالرابط
                                                             </label>
-                                                            <input type="text" id="slug"
+                                                            <input type="text" id="name"
                                                                    class="form-control"
                                                                    placeholder="  "
                                                                    value="{{$category -> slug}}"
@@ -105,6 +104,7 @@
                                                             @enderror
                                                         </div>
                                                     </div>
+
 
 
 
@@ -119,10 +119,10 @@
                                                                    class="switchery" data-color="success"
                                                                    @if($category -> is_active == 1)checked @endif/>
                                                             <label for="switcheryColor4"
-                                                                   class="card-title ml-1">{{__('admin/general.status')}} </label>
+                                                                   class="card-title ml-1">الحالة  </label>
 
                                                             @error("is_active")
-                                                            <span class="text-danger"> {{$message}}</span>
+                                                            <span class="text-danger">{{$message }}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
@@ -141,7 +141,6 @@
                                             </div>
                                         </form>
 
-
                                     </div>
                                 </div>
                             </div>
@@ -153,4 +152,4 @@
         </div>
     </div>
 
-@endsection
+@stop

@@ -32,6 +32,7 @@ class CreateProductsTable extends Migration
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('set null');
             $table->softDeletes();
             $table->timestamps();
+
         });
     }
 

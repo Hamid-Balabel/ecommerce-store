@@ -22,6 +22,7 @@ return [
     'not active'=>'غير مفعل',
     'this category is not found'=>'هذا القسم غير موجود',
     'this brand is not found'=>'هذه الماركة غير موجودة',
+    'this option is not found'=>'هذه القيمة غير موجودة',
     'this attribute is not found'=>'هذه الخاصية غير موجودة',
     'categories data'=>'بيانات القسم',
     'categories'=>'الاقسام',

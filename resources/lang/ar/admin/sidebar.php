@@ -24,5 +24,7 @@ return [
     'products'=>'المنتجات',
     'attributes'=>'خصائص المنتج',
     'add new product'=>'اضافة منتج جديد',
-    'add new attribute'=>'اضافة خاصية جديدة'
+    'add new attribute'=>'اضافة خاصية جديدة',
+    'main slider'=>'Main slider',
+    'create'=>'Create',
 ];

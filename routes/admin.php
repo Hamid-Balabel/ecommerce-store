@@ -123,6 +123,17 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             });
             ///// end options   /////
 
+            ///// start slider /////
+
+            Route::group(['prefix' => 'sliders'], function () {
+                Route::get('/', 'SliderController@addImages')->name('admin.sliders.create');
+                Route::post('images', 'SliderController@saveSliderImages')->name('admin.sliders.images.store');
+                Route::post('images/db', 'SliderController@saveSliderImagesDB')->name('admin.sliders.images.store.db');
+
+            });
+
+            /////end slider /////
+
 
 
         });
