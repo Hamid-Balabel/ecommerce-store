@@ -135,6 +135,27 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             /////end slider /////
 
 
+            ///// roles /////
+
+            Route::group(['prefix' => 'roles'], function () {
+                Route::get('/', 'RolesController@index')->name('admin.roles.index');
+                Route::get('create', 'RolesController@create')->name('admin.roles.create');
+                Route::post('store', 'RolesController@saveRole')->name('admin.roles.store');
+                Route::get('/edit/{id}', 'RolesController@edit') ->name('admin.roles.edit') ;
+                Route::post('update/{id}', 'RolesController@update')->name('admin.roles.update');
+            });
+
+            ///// end roles /////
+
+            /**
+             * admins Routes
+             */
+            Route::group(['prefix' => 'users' , 'middleware' => 'can:users'], function () {
+                Route::get('/', 'UsersController@index')->name('admin.users.index');
+                Route::get('/create', 'UsersController@create')->name('admin.users.create');
+                Route::post('/store', 'UsersController@store')->name('admin.users.store');
+            });
+
 
         });
 

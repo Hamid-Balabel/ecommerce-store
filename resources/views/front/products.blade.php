@@ -268,21 +268,21 @@
             });
         });
 
-        {{--$(document).on('click', '.cart-addition', function (e) {--}}
-        {{--    e.preventDefault();--}}
+        $(document).on('click', '.cart-addition', function (e) {
+            e.preventDefault();
 
-        {{--    $.ajax({--}}
-        {{--        type: 'post',--}}
-        {{--        url: "{{Route('site.cart.add')}}",--}}
-        {{--        data: {--}}
-        {{--            'product_id': $(this).attr('data-product-id'),--}}
-        {{--            'product_slug' : $(this).attr('data-product-slug'),--}}
-        {{--        },--}}
-        {{--        success: function (data) {--}}
+            $.ajax({
+                type: 'post',
+                url: "{{Route('site.cart.add')}}",
+                data: {
+                    'product_id': $(this).attr('data-product-id'),
+                    'product_slug' : $(this).attr('data-product-slug'),
+                },
+                success: function (data) {
 
-        {{--        }--}}
-        {{--    });--}}
-        {{--});--}}
+                }
+            });
+        });
     </script>
 
 @stop
