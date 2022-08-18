@@ -26,12 +26,17 @@
                         </a>
                     </div>
 
-                    <!-- begin module:ps_shoppingcart/ps_shoppingcart.tpl -->
-                    <!-- begin /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/ps_shoppingcart/ps_shoppingcart.tpl --><div id="_desktop_cart">
-                        <div class="blockcart cart-preview active" data-refresh-url="//demo.bestprestashoptheme.com/savemart/ar/module/ps_shoppingcart/ajax">
+
+                    <div id="_desktop_cart">
+                        <div class="blockcart cart-preview active" data-refresh-url="">
                             <div class="header-cart">
                                 <div class="cart-left">
-                                    <div class="shopping-cart"><i class="zmdi zmdi-shopping-cart"></i></div>
+                                    <a href="{{route('site.cart.index')}}" title="My Wishlists">
+                                        <div class="shopping-cart">
+                                            <i class="zmdi zmdi-shopping-cart"></i>
+
+                                        </div>
+                                    </a>
                                     <div class="cart-products-count">0</div>
                                 </div>
                                 <div class="cart-right d-flex flex-column align-self-end ml-13">

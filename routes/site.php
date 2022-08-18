@@ -31,6 +31,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
             Route::post('verify-user/','VerificationCodeController@verify')->name('verify-user');
             Route::get('verify','VerificationCodeController@getVerifyPage')->name('get.verification.form');
+            Route::get('products/{productId}/reviews', 'ProductReviewController@index')->name('products.reviews.index');
+            Route::post('products/{productId}/reviews', 'ProductReviewController@store')->name('products.reviews.store');
+            Route::get('payment/{amount}', 'PaymentController@getPayments') -> name('payment');
+            Route::post('payment', 'PaymentController@processPayment') -> name('payment.process');
         });
 
         Route::group(['namespace' => 'Site'/* ,'middleware' => 'guest' */], function () {
@@ -38,6 +42,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             Route::get('category/{slug}','CategoryController@productsBySlug')->name('category');
             Route::get('product/{slug}', 'ProductController@productsBySlug')->name('product.details');
 
+        });
+
+        Route::group(['namespace' => 'Site','prefix' => 'cart'], function () {
+            Route::get('/', 'CartController@getIndex')->name('site.cart.index');
+            Route::post('/cart/add/{slug?}', 'CartController@postAdd')->name('site.cart.add');
+            Route::post('/update/{slug}', 'CartController@postUpdate')->name('site.cart.update');
+            Route::post('/update-all', 'CartController@postUpdateAll')->name('site.cart.update-all');
         });
 
 
@@ -48,4 +59,5 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         });
 
     });
+
 
